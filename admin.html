@@ -1,139 +1,114 @@
 <!DOCTYPE html>
-
 <html lang="en">
-
 <head>
-
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Admin Panel | School of Pharmacy</title>
-
     <script src="https://cdn.tailwindcss.com"></script>
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-
     <style>
-
         .bg-pharmacy { background-color: #2D5A27; }
-
         #loginOverlay { background: rgba(0,0,0,0.95); z-index: 200; }
-
         .table-container { background: white; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
-
     </style>
-
 </head>
-
 <body class="bg-gray-100 font-sans">
 
-
-
     <div id="loginOverlay" class="fixed inset-0 flex items-center justify-center p-4">
-
         <div class="bg-white p-8 rounded-2xl shadow-2xl w-full max-w-md text-center border-t-8 border-yellow-500">
-
             <h2 class="text-2xl font-bold mb-6 text-pharmacy">Admin Security Login</h2>
-
             <input type="password" id="adminPass" class="w-full p-3 border rounded-lg mb-4 outline-none focus:ring-2 focus:ring-green-500" placeholder="Enter Password">
-
             <button onclick="checkPass()" class="w-full bg-pharmacy text-white py-3 rounded-lg font-bold hover:bg-green-800 transition">Unlock Panel</button>
-
             <p id="errMsg" class="text-red-500 text-sm mt-3 hidden">Invalid Password!</p>
-
         </div>
-
     </div>
-
-
 
     <div id="mainContent" class="hidden max-w-7xl mx-auto py-6 px-4">
-
         <div class="bg-black text-yellow-500 text-center py-2 rounded-t-lg text-sm font-mono mb-4">
-
             <i class="fas fa-calendar-alt mr-2"></i> <span id="currentDate"></span> | 
-
             <i class="fas fa-clock mr-2"></i> <span id="currentTime"></span>
-
         </div>
-
-
 
         <div class="bg-pharmacy text-white rounded-lg p-8 text-center shadow-lg border-b-4 border-yellow-500 mb-6">
-
-            <h1 class="text-4xl font-bold mb-2">SCHOOL OF PHARMACY</h1>
-
+            <h1 class="text-4xl font-bold mb-2 uppercase">SCHOOL OF PHARMACY</h1>
             <p class="text-md opacity-90 uppercase tracking-widest">Interested Students Details</p>
-
         </div>
-
-
 
         <div class="flex justify-between items-center mb-6">
-
             <div class="flex space-x-3">
-
-                <button onclick="exportToExcel()" class="bg-green-700 text-white px-4 py-2 rounded flex items-center hover:bg-green-800 transition">
-
+                <button onclick="exportToExcel()" class="bg-green-700 text-white px-4 py-2 rounded flex items-center hover:bg-green-800 transition shadow">
                     <i class="fas fa-file-excel mr-2"></i> Download Excel
-
                 </button>
-
-                <button onclick="window.print()" class="bg-blue-600 text-white px-4 py-2 rounded flex items-center hover:bg-blue-700 transition">
-
+                <button onclick="window.print()" class="bg-blue-600 text-white px-4 py-2 rounded flex items-center hover:bg-blue-700 transition shadow">
                     <i class="fas fa-print mr-2"></i> Print Report
-
                 </button>
-
             </div>
-
-           <button onclick="logoutAndGoHome()" class="bg-gray-700 text-white px-6 py-2 rounded hover:bg-gray-800 transition">
-
-    <i class="fas fa-sign-out-alt mr-2"></i> Logout
-
-</button>
-
+            <button onclick="logoutAndGoHome()" class="bg-gray-700 text-white px-6 py-2 rounded hover:bg-gray-800 transition shadow">
+                <i class="fas fa-sign-out-alt mr-2"></i> Logout
+            </button>
         </div>
 
-
-
-        <div class="table-container overflow-hidden border border-gray-200 bg-white">
-
+        <div class="table-container overflow-hidden border border-gray-200 bg-white shadow-2xl">
             <div class="p-4 bg-gray-50 border-b flex justify-between items-center">
-
                 <span class="font-bold text-pharmacy uppercase text-sm tracking-wider">Live Records (Google Sheets)</span>
-
-                <button onclick="refreshIframe()" class="text-blue-600 hover:text-blue-800 font-bold flex items-center">
-
+                <button onclick="refreshIframe()" class="text-blue-600 hover:text-blue-800 font-bold flex items-center transition">
                     <i class="fas fa-sync-alt mr-2"></i> Refresh Data
-
                 </button>
-
             </div>
-
             
-
-            <div class="w-full h-[600px]">
-
+            <div class="w-full h-[650px] bg-white">
                 <iframe id="dataSheet" 
-
-                        src="https://docs.google.com/spreadsheets/d/1ywiZBkeaLO9rpfFIOlvGDdw0R_RXomJhvPtaKK1j1Cg/edit?gid=0#gid=0" 
-
+                        src="https://docs.google.com/spreadsheets/d/1ywiZBkeaLO9rpfFIOlvGDdw0R_RXomJhvPtaKK1j1Cg/pubhtml?widget=true&headers=false" 
                         class="w-full h-full border-none">
-
                 </iframe>
-
             </div>
-
         </div>
-
     </div>
 
-
-
     <script>
-
-        // Password Check
-
+        // Password Check Logic
         function checkPass() {
+            const input = document.getElementById('adminPass').value;
+            if(input === "admin123") {
+                document.getElementById('loginOverlay').style.display = 'none';
+                document.getElementById('mainContent').classList.remove('hidden');
+            } else {
+                document.getElementById('errMsg').classList.remove('hidden');
+            }
+        }
+
+        // Live Date & Time
+        function updateDateTime() {
+            const now = new Date();
+            document.getElementById('currentDate').innerText = now.toLocaleDateString('en-GB');
+            document.getElementById('currentTime').innerText = now.toLocaleTimeString();
+        }
+        setInterval(updateDateTime, 1000);
+        updateDateTime();
+
+        // Refresh Iframe
+        function refreshIframe() {
+            var ifr = document.getElementById('dataSheet');
+            ifr.src = ifr.src;
+        }
+
+        // Excel Download Logic
+        function exportToExcel() {
+            const sheetID = "1ywiZBkeaLO9rpfFIOlvGDdw0R_RXomJhvPtaKK1j1Cg";
+            window.open(`https://docs.google.com/spreadsheets/d/${sheetID}/export?format=xlsx`);
+        }
+
+        // Logout & Redirect (Fixed Logic)
+        function logoutAndGoHome() {
+            window.location.href = "index.html";
+        }
+
+        // Enter key shortcut for login
+        document.getElementById("adminPass").addEventListener("keyup", function(event) {
+            if (event.key === "Enter") { 
+                checkPass(); 
+            }
+        });
+    </script>
+</body>
+</html>
