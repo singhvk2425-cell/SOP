@@ -45,70 +45,163 @@
         <section id="about" class="mb-16">
             <h2 class="text-3xl font-bold pharmacy-green mb-6 border-b-4 border-yellow-500 inline-block">About Us</h2>
             <div class="grid md:grid-cols-2 gap-8 items-center text-lg leading-relaxed">
-                <p>Al-Karim University, Katihar (Bihar) is dedicated to delivering excellence in pharmaceutical education.</p>
-                <div class="bg-green-100 p-6 rounded-xl border-l-4 border-green-700">
-                    <p class="italic">"To equip its students with not just skills but also to instill in them human values."</p>
-                    <p class="font-bold mt-2">— Prof. (Dr.) Md. Aftab Alam</p>
+                <p>Al-Karim University, Katihar (Bihar) is dedicated to delivering excellence in pharmaceutical education. Our distinguished faculty comprises highly qualified professionals with expertise across academia, research, and clinical practice.</p>
+                <div class="bg-green-100 p-6 rounded-xl border-l-4 border-green-700 shadow-sm">
+                    <p class="italic text-green-900">"To equip its students with not just skills but also to instill in them human values."</p>
+                    <p class="font-bold mt-2 text-green-800">— Prof. (Dr.) Md. Aftab Alam, Dean & Principal</p>
                 </div>
             </div>
         </section>
 
-        </main>
+        <section id="courses" class="mb-16">
+            <h2 class="text-3xl font-bold pharmacy-green mb-8">Programmes & Fee Structure</h2>
+            <div class="overflow-x-auto bg-white shadow-xl rounded-lg">
+                <table class="w-full text-left border-collapse">
+                    <thead class="bg-pharmacy text-white">
+                        <tr>
+                            <th class="p-4">Name of Course</th>
+                            <th class="p-4">Duration</th>
+                            <th class="p-4">Seats</th>
+                            <th class="p-4">Yearly Tuition Fee</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-200">
+                        <tr class="hover:bg-green-50 transition">
+                            <td class="p-4 font-semibold">Bachelor of Pharmacy (B.Pharm)</td>
+                            <td class="p-4">4 Years</td>
+                            <td class="p-4">60</td>
+                            <td class="p-4 text-green-700 font-bold">₹ 1,10,000</td>
+                        </tr>
+                        <tr class="hover:bg-green-50 transition">
+                            <td class="p-4 font-semibold">Diploma in Pharmacy (D.Pharm)</td>
+                            <td class="p-4">2 Years</td>
+                            <td class="p-4">60</td>
+                            <td class="p-4 text-green-700 font-bold">₹ 1,10,000</td>
+                        </tr>
+                        <tr class="hover:bg-green-50 transition">
+                            <td class="p-4 font-semibold">B.Pharm (Lateral Entry)</td>
+                            <td class="p-4">3 Years</td>
+                            <td class="p-4">06</td>
+                            <td class="p-4 text-green-700 font-bold">₹ 1,10,000</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="facilities" class="mb-16">
+            <h2 class="text-3xl font-bold pharmacy-green mb-8">Our Facilities</h2>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="bg-white p-6 shadow-md rounded-lg border-t-4 border-yellow-500 text-center hover:shadow-xl transition">
+                    <i class="fas fa-microscope text-4xl pharmacy-green mb-4"></i>
+                    <h3 class="font-bold text-xl mb-2">17+ Modern Labs</h3>
+                    <p class="text-gray-600 text-sm">Equipped for hands-on training.</p>
+                </div>
+                <div class="bg-white p-6 shadow-md rounded-lg border-t-4 border-yellow-500 text-center hover:shadow-xl transition">
+                    <i class="fas fa-book text-4xl pharmacy-green mb-4"></i>
+                    <h3 class="font-bold text-xl mb-2">Digital Library</h3>
+                    <p class="text-gray-600 text-sm">Access to 4000+ books.</p>
+                </div>
+                <div class="bg-white p-6 shadow-md rounded-lg border-t-4 border-yellow-500 text-center hover:shadow-xl transition">
+                    <i class="fas fa-laptop text-4xl pharmacy-green mb-4"></i>
+                    <h3 class="font-bold text-xl mb-2">Computer Lab</h3>
+                    <p class="text-gray-600 text-sm">High-speed broadband connectivity.</p>
+                </div>
+            </div>
+        </section>
+    </main>
 
     <footer id="contact" class="bg-gray-900 text-white py-12">
-        <div class="container mx-auto px-6 grid md:grid-cols-2 gap-8 text-center md:text-left">
-            <div><h4 class="text-2xl font-bold mb-4 text-yellow-500">Contact Us</h4><p>Karim Bagh, Katihar, Bihar</p></div>
-            <div class="mt-8 md:mt-0 md:text-right"><a href="admin.html" class="text-gray-600 hover:text-gray-400 text-xs">Admin Login</a></div>
+        <div class="container mx-auto px-6 grid md:grid-cols-2 gap-8">
+            <div>
+                <h4 class="text-2xl font-bold mb-4 text-yellow-500">Contact Us</h4>
+                <p>Al-Karim University, Karim Bagh, Katihar, Bihar</p>
+                <p>Phone: +91-6452-249212 | 9472810107</p>
+                <p>Email: schoolofpharmacy@alkarimuniversity.edu.in</p>
+            </div>
+            <div class="text-center md:text-right">
+                <div class="text-2xl font-bold mb-4">School of Pharmacy</div>
+                <a href="admin.html" class="text-gray-600 hover:text-white text-xs underline">Admin Portal</a>
+            </div>
         </div>
     </footer>
 
     <div id="applyModal" class="modal fixed inset-0 bg-black bg-opacity-70 items-center justify-center z-[100] p-4">
         <div class="bg-white rounded-2xl shadow-2xl w-full max-w-lg p-8 relative border-t-8 border-yellow-500">
-            <button onclick="toggleModal()" class="absolute top-4 right-4 text-gray-400 hover:text-red-500 text-2xl"><i class="fas fa-times-circle"></i></button>
-            <h3 class="text-3xl font-bold pharmacy-green mb-2 text-center">Interested Student Form</h3>
-            <form id="googleSheetForm" name="google-sheet" class="space-y-5">
-                <input type="text" name="name" required class="w-full p-3 border rounded-lg" placeholder="Full Name">
-                <input type="tel" name="mobile" required pattern="[0-9]{10}" class="w-full p-3 border rounded-lg" placeholder="10-digit mobile number">
-                <select name="course" required class="w-full p-3 border rounded-lg bg-white">
-                    <option value="" disabled selected>Choose Course</option>
-                    <option value="B.Pharm">B.Pharm</option>
-                    <option value="D.Pharm">D.Pharm</option>
-                </select>
-                <input type="text" name="qualification" required class="w-full p-3 border rounded-lg" placeholder="Current Qualification">
-                <button type="submit" id="submitBtn" class="w-full bg-pharmacy text-white font-bold py-3 rounded-xl hover:bg-green-800 transition shadow-lg uppercase">Submit Details</button>
+            <button onclick="toggleModal()" class="absolute top-4 right-4 text-gray-400 hover:text-red-500 text-2xl">
+                <i class="fas fa-times-circle"></i>
+            </button>
+
+            <h3 class="text-3xl font-bold pharmacy-green mb-2 text-center">Interested Student</h3>
+            <p class="text-gray-500 text-center mb-8">Enter your details and our team will call you back.</p>
+
+            <form id="admissionForm" class="space-y-5">
+                <div>
+                    <label class="block text-sm font-bold text-gray-700 mb-1">Full Name</label>
+                    <input type="text" name="name" required class="w-full px-4 py-2 border rounded-lg outline-none focus:ring-2 focus:ring-green-400" placeholder="Ex: Vishal Kumar">
+                </div>
+                <div>
+                    <label class="block text-sm font-bold text-gray-700 mb-1">Mobile Number</label>
+                    <input type="tel" name="mobile" required pattern="[0-9]{10}" class="w-full px-4 py-2 border rounded-lg outline-none focus:ring-2 focus:ring-green-400" placeholder="10-digit mobile number">
+                </div>
+                <div>
+                    <label class="block text-sm font-bold text-gray-700 mb-1">Select Course</label>
+                    <select name="course" required class="w-full px-4 py-2 border rounded-lg outline-none focus:ring-2 focus:ring-green-400">
+                        <option value="" disabled selected>Choose Course</option>
+                        <option value="B.Pharm">B.Pharm (4 Years)</option>
+                        <option value="D.Pharm">D.Pharm (2 Years)</option>
+                        <option value="B.Pharm-Lateral">B.Pharm (Lateral Entry)</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-sm font-bold text-gray-700 mb-1">Qualification</label>
+                    <input type="text" name="qualification" required class="w-full px-4 py-2 border rounded-lg outline-none focus:ring-2 focus:ring-green-400" placeholder="Ex: 12th Science">
+                </div>
+                <button type="submit" id="submitBtn" class="w-full bg-pharmacy text-white font-bold py-3 rounded-xl hover:bg-green-800 transition shadow-lg uppercase">
+                    Submit Details
+                </button>
             </form>
         </div>
     </div>
 
     <script>
         function toggleModal() {
-            document.getElementById('applyModal').classList.toggle('active');
+            const modal = document.getElementById('applyModal');
+            modal.classList.toggle('active');
             document.body.classList.toggle('overflow-hidden');
         }
 
+        // GOOGLE SHEET SUBMISSION
         const scriptURL = 'https://script.google.com/macros/s/AKfycbwQCDk9W82EgtAY5ynJm4ZnyQitorejEG2ooXHRVvGvG0AmkVZwQoi7goiII3rMeUu8/exec';
-        const form = document.forms['google-sheet'];
+        const form = document.getElementById('admissionForm');
+        const btn = document.getElementById('submitBtn');
 
         form.addEventListener('submit', e => {
             e.preventDefault();
-            const btn = document.getElementById('submitBtn');
             btn.disabled = true;
             btn.innerText = "Sending...";
 
             fetch(scriptURL, { method: 'POST', body: new FormData(form)})
                 .then(response => {
-                    alert("Success! Details submitted to Admin Panel.");
+                    alert("Shukriya! Aapka data Google Sheet mein save ho gaya hai.");
                     btn.disabled = false;
                     btn.innerText = "Submit Details";
                     form.reset();
                     toggleModal();
                 })
                 .catch(error => {
-                    alert("Error! Please check your internet or Google Script permissions.");
+                    console.error('Error!', error.message);
+                    alert("Kuch garbar hui! Sheet permissions check karein.");
                     btn.disabled = false;
                     btn.innerText = "Submit Details";
                 });
         });
+
+        // Modal close on outside click
+        window.onclick = function(event) {
+            const modal = document.getElementById('applyModal');
+            if (event.target == modal) { toggleModal(); }
+        }
     </script>
 </body>
 </html>
