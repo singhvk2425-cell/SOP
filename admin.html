@@ -30,7 +30,7 @@
         </div>
 
         <div class="bg-pharmacy text-white rounded-lg p-8 text-center shadow-lg border-b-4 border-yellow-500 mb-6">
-            <h1 class="text-4xl font-bold mb-2">SCHOOL OF PHARMACY</h1>
+            <h1 class="text-4xl font-bold mb-2 uppercase">SCHOOL OF PHARMACY</h1>
             <p class="text-md opacity-90 uppercase tracking-widest">Interested Students Details</p>
         </div>
 
@@ -43,9 +43,9 @@
                     <i class="fas fa-print mr-2"></i> Print Report
                 </button>
             </div>
-           <button onclick="logoutAndGoHome()" class="bg-gray-700 text-white px-6 py-2 rounded hover:bg-gray-800 transition">
-    <i class="fas fa-sign-out-alt mr-2"></i> Logout
-</button>
+            <button onclick="logoutAndGoHome()" class="bg-gray-700 text-white px-6 py-2 rounded hover:bg-gray-800 transition">
+                <i class="fas fa-sign-out-alt mr-2"></i> Logout
+            </button>
         </div>
 
         <div class="table-container overflow-hidden border border-gray-200 bg-white">
@@ -58,7 +58,7 @@
             
             <div class="w-full h-[600px]">
                 <iframe id="dataSheet" 
-                        src="https://docs.google.com/spreadsheets/d/1ywiZBkeaLO9rpfFIOlvGDdw0R_RXomJhvPtaKK1j1Cg/edit?gid=0#gid=0" 
+                        src="https://docs.google.com/spreadsheets/d/1ywiZBkeaLO9rpfFIOlvGDdw0R_RXomJhvPtaKK1j1Cg/pubhtml?widget=true&headers=false" 
                         class="w-full h-full border-none">
                 </iframe>
             </div>
@@ -66,7 +66,7 @@
     </div>
 
     <script>
-        // Password Check
+        // Password Check Logic
         function checkPass() {
             if(document.getElementById('adminPass').value === "admin123") {
                 document.getElementById('loginOverlay').style.display = 'none';
@@ -76,7 +76,7 @@
             }
         }
 
-        // Live Clock
+        // Live Date & Time
         function updateDateTime() {
             const now = new Date();
             document.getElementById('currentDate').innerText = now.toLocaleDateString('en-GB');
@@ -85,26 +85,28 @@
         setInterval(updateDateTime, 1000);
         updateDateTime();
 
-        // Refresh Sheet
+        // Refresh Iframe
         function refreshIframe() {
             var ifr = document.getElementById('dataSheet');
             ifr.src = ifr.src;
         }
 
-        // Excel Download Logic
+        // Excel Download (Sheet ID extracted from your link)
         function exportToExcel() {
-            // DHYAN SE: Niche bhi ID badal lena
-            const sheetID = "APNI_SHEET_ID_YAHAN_DALO";
+            const sheetID = "1ywiZBkeaLO9rpfFIOlvGDdw0R_RXomJhvPtaKK1j1Cg";
             window.open(`https://docs.google.com/spreadsheets/d/${sheetID}/export?format=xlsx`);
         }
 
-        // Enter key se login
+        // Logout Function (Direct redirect to index.html)
+        function logoutAndGoHome() {
+            window.location.href = "index.html";
+        }
+
+        // Enter key shortcut for login
         document.getElementById("adminPass").addEventListener("keyup", function(event) {
-            if (event.key === "Enter") { checkPass(); }
-            function logoutAndGoHome() {
-    // Ye line aapko direct main website (index.html) par bhej degi
-    window.location.href = "index.html"; 
-}
+            if (event.key === "Enter") { 
+                checkPass(); 
+            }
         });
     </script>
 </body>
