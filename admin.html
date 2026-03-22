@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Portal | School of Pharmacy</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .bg-admin-dark { background-color: #1a202c; }
+        .pharmacy-green { color: #2D5A27; }
+        .sidebar { min-height: 100vh; }
+    </style>
+</head>
+<body class="bg-gray-100 font-sans">
+
+    <div class="flex">
+        <div class="w-64 bg-admin-dark text-white sidebar hidden md:block">
+            <div class="p-6 text-center border-b border-gray-700">
+                <h2 class="text-xl font-bold tracking-widest uppercase">Admin Panel</h2>
+                <p class="text-xs text-gray-400 mt-1">Al-Karim University</p>
+            </div>
+            <nav class="mt-6">
+                <a href="#" class="flex items-center py-3 px-6 bg-green-700 text-white border-l-4 border-yellow-500">
+                    <i class="fas fa-users mr-3"></i> Interested Students
+                </a>
+                <a href="#" class="flex items-center py-3 px-6 text-gray-400 hover:bg-gray-800 hover:text-white transition">
+                    <i class="fas fa-university mr-3"></i> School Of Pharmacy
+                </a>
+                <a href="#" class="flex items-center py-3 px-6 text-gray-400 hover:bg-gray-800 hover:text-white transition mt-20">
+                    <i class="fas fa-sign-out-alt mr-3"></i> Logout
+                </a>
+            </nav>
+        </div>
+
+        <div class="flex-1">
+            <header class="bg-white shadow px-8 py-4 flex justify-between items-center">
+                <h1 class="text-2xl font-bold text-gray-800 uppercase">Dashboard</h1>
+                <div class="flex items-center space-x-4">
+                    <span class="text-gray-600 font-medium">Welcome, Admin</span>
+                    <img src="https://ui-avatars.com/api/?name=Admin&background=2D5A27&color=fff" class="w-10 h-10 rounded-full border-2 border-green-500">
+                </div>
+            </header>
+
+            <main class="p-8">
+                <div class="grid md:grid-cols-3 gap-6 mb-8">
+                    <div class="bg-white p-6 rounded-xl shadow-sm border-l-4 border-green-600">
+                        <h4 class="text-gray-500 text-sm font-bold uppercase">Total Leads</h4>
+                        <p class="text-3xl font-bold pharmacy-green mt-2">Check Formspree</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-sm border-l-4 border-yellow-500">
+                        <h4 class="text-gray-500 text-sm font-bold uppercase">Target Department</h4>
+                        <p class="text-3xl font-bold text-gray-800 mt-2">Pharmacy</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-sm border-l-4 border-blue-500">
+                        <button onclick="window.open('https://formspree.io/forms/mnjgywrz/submissions', '_blank')" 
+                                class="w-full bg-blue-600 text-white font-bold py-3 rounded-lg hover:bg-blue-700 transition">
+                            <i class="fas fa-external-link-alt mr-2"></i> View Live Data
+                        </button>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl shadow-sm overflow-hidden border border-gray-200">
+                    <div class="bg-gray-50 px-8 py-4 border-b border-gray-200 flex justify-between items-center">
+                        <div>
+                            <h3 class="text-lg font-bold pharmacy-green">Interested Student Details</h3>
+                            <p class="text-sm text-gray-500">List of students who applied via School of Pharmacy page.</p>
+                        </div>
+                        <button class="bg-green-600 text-white px-4 py-2 rounded text-sm hover:bg-green-700 transition">
+                            <i class="fas fa-download mr-2"></i> Export to CSV
+                        </button>
+                    </div>
+
+                    <div class="p-8 text-center py-20">
+                        <i class="fas fa-database text-6xl text-gray-200 mb-4"></i>
+                        <h4 class="text-xl font-bold text-gray-400">Manage Your Data on Formspree</h4>
+                        <p class="text-gray-500 max-w-md mx-auto mt-2">Kyunki aap GitHub (Static) use kar rahe hain, isliye aapka saara data Formspree ke dashboard par safe store hota hai.</p>
+                        <a href="https://formspree.io/f/mnjgywrz" target="_blank" 
+                           class="mt-6 inline-block bg-pharmacy text-white font-bold py-3 px-8 rounded-xl shadow-lg hover:bg-green-800 transition">
+                            Open Formspree Dashboard
+                        </a>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+</body>
+</html>
