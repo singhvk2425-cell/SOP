@@ -36,10 +36,10 @@
 
         <div class="flex justify-between items-center mb-6">
             <div class="flex space-x-3">
-                <button onclick="exportTableToExcel()" class="bg-green-700 text-white px-4 py-2 rounded flex items-center hover:bg-green-800">
+                <button onclick="exportToExcel()" class="bg-green-700 text-white px-4 py-2 rounded flex items-center hover:bg-green-800 transition">
                     <i class="fas fa-file-excel mr-2"></i> Download Excel
                 </button>
-                <button onclick="window.print()" class="bg-blue-600 text-white px-4 py-2 rounded flex items-center hover:bg-blue-700">
+                <button onclick="window.print()" class="bg-blue-600 text-white px-4 py-2 rounded flex items-center hover:bg-blue-700 transition">
                     <i class="fas fa-print mr-2"></i> Print Report
                 </button>
             </div>
@@ -48,20 +48,25 @@
             </button>
         </div>
 
-        <div class="table-container overflow-hidden border border-gray-200">
+        <div class="table-container overflow-hidden border border-gray-200 bg-white">
             <div class="p-4 bg-gray-50 border-b flex justify-between items-center">
-                <span class="font-bold text-pharmacy">Live Student Records (from Google Sheets)</span>
-                <button onclick="loadData()" class="text-blue-600 hover:rotate-180 transition-all duration-500"><i class="fas fa-sync-alt"></i> Refresh</button>
+                <span class="font-bold text-pharmacy uppercase text-sm tracking-wider">Live Records (Google Sheets)</span>
+                <button onclick="refreshIframe()" class="text-blue-600 hover:text-blue-800 font-bold flex items-center">
+                    <i class="fas fa-sync-alt mr-2"></i> Refresh Data
+                </button>
             </div>
             
             <div class="w-full h-[600px]">
-                <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vR6z-HREJqVpT-yL1yQk-q7J8D7_J-J_Z-Y0-Y-Y-Y-Y-Y-Y-Y/pubhtml?widget=true&headers=false" 
-                        class="w-full h-full border-none"></iframe>
-                </div>
+                <iframe id="dataSheet" 
+                        src="https://docs.google.com/spreadsheets/d/APNI_SHEET_ID_YAHAN_DALO/pubhtml?widget=true&headers=false" 
+                        class="w-full h-full border-none">
+                </iframe>
+            </div>
         </div>
     </div>
 
     <script>
+        // Password Check
         function checkPass() {
             if(document.getElementById('adminPass').value === "admin123") {
                 document.getElementById('loginOverlay').style.display = 'none';
@@ -71,6 +76,7 @@
             }
         }
 
+        // Live Clock
         function updateDateTime() {
             const now = new Date();
             document.getElementById('currentDate').innerText = now.toLocaleDateString('en-GB');
@@ -79,10 +85,23 @@
         setInterval(updateDateTime, 1000);
         updateDateTime();
 
-        function exportTableToExcel() {
-            window.open('https://docs.google.com/spreadsheets/d/1vR6z-HREJqVpT-yL1yQk-q7J8D7_J-J_Z-Y0-Y-Y-Y-Y-Y-Y-Y/export?format=xlsx');
-            // Yahan bhi apni Sheet ki ID badal lena
+        // Refresh Sheet
+        function refreshIframe() {
+            var ifr = document.getElementById('dataSheet');
+            ifr.src = ifr.src;
         }
+
+        // Excel Download Logic
+        function exportToExcel() {
+            // DHYAN SE: Niche bhi ID badal lena
+            const sheetID = "APNI_SHEET_ID_YAHAN_DALO";
+            window.open(`https://docs.google.com/spreadsheets/d/${sheetID}/export?format=xlsx`);
+        }
+
+        // Enter key se login
+        document.getElementById("adminPass").addEventListener("keyup", function(event) {
+            if (event.key === "Enter") { checkPass(); }
+        });
     </script>
 </body>
 </html>
