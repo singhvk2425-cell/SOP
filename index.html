@@ -7,7 +7,8 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        .hero-gradient { background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://via.placeholder.com/1600x600'); background-size: cover; }
+        /* Hero background placeholder image ke saath */
+        .hero-gradient { background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1587854692152-cbe660dbbb88?ixlib=rb-1.2.1&auto=format&fit=crop&w=1600&q=80'); background-size: cover; background-position: center; }
         .pharmacy-green { color: #2D5A27; }
         .bg-pharmacy { background-color: #2D5A27; }
         .modal { display: none; }
@@ -18,99 +19,231 @@
 
     <nav class="bg-white shadow-md sticky top-0 z-50">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="text-2xl font-bold bg-pharmacy text-white px-4 py-1 rounded">AL-KARIM UNIVERSITY</div>
+            <div class="text-xl md:text-2xl font-bold bg-pharmacy text-white px-4 py-1 rounded shadow-sm">AL-KARIM UNIVERSITY</div>
             <div class="hidden md:flex space-x-8 font-medium">
                 <a href="#about" class="hover:text-green-700">About</a>
                 <a href="#courses" class="hover:text-green-700">Courses</a>
                 <a href="#facilities" class="hover:text-green-700">Facilities</a>
                 <a href="#contact" class="hover:text-green-700">Contact</a>
             </div>
-            <button onclick="toggleModal()" class="hidden md:block bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-2 px-6 rounded-full transition">
+            <button onclick="toggleModal()" class="bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-2 px-6 rounded-full transition shadow-md">
                 Apply Now
             </button>
         </div>
     </nav>
 
-    <header class="hero-gradient h-[500px] flex items-center justify-center text-center text-white">
-        <div class="px-4">
-            <h1 class="text-4xl md:text-6xl font-bold mb-4">SCHOOL OF PHARMACY</h1>
-            <p class="text-xl md:text-2xl mb-8">Approved by Pharmacy Council of India (PCI)</p>
-            <button onclick="toggleModal()" class="bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-3 px-8 rounded-full transition">
-                Apply Now for Admission
+    <header class="hero-gradient h-[550px] flex items-center justify-center text-center text-white px-4">
+        <div>
+            <h1 class="text-4xl md:text-6xl font-extrabold mb-4 drop-shadow-lg">SCHOOL OF PHARMACY</h1>
+            <p class="text-xl md:text-2xl mb-8 opacity-90">Approved by Pharmacy Council of India (PCI)</p>
+            <button onclick="toggleModal()" class="bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-4 px-10 rounded-full text-lg transition transform hover:scale-105 shadow-xl">
+                Start Your Journey Today
             </button>
         </div>
     </header>
 
-    <footer id="contact" class="bg-gray-900 text-white py-12">
-        <div class="text-center mt-12 pt-8 border-t border-gray-800 text-gray-500">
-            &copy; 2026 Al-Karim University. All Rights Reserved.
+    <main class="container mx-auto px-6">
+        
+        <section id="about" class="py-20">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-3xl font-bold pharmacy-green mb-6 border-l-8 border-yellow-500 pl-4 uppercase tracking-wider">About Our Institution</h2>
+                    <p class="text-gray-600 leading-relaxed text-lg mb-6">
+                        Al-Karim University, established in 2018 at Katihar, Bihar, spans 55 acres of lush green campus. Our School of Pharmacy is dedicated to excellence in pharmaceutical education, blending theoretical knowledge with hands-on practical training.
+                    </p>
+                    <div class="bg-green-50 p-6 rounded-xl border-l-4 border-green-700 shadow-inner">
+                        <p class="italic text-green-900 font-medium">"To equip students with skills and instill human values for the welfare of society."</p>
+                        <span class="block mt-2 text-sm font-bold">— Prof. (Dr.) Md. Aftab Alam, Dean & Principal</span>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 gap-6">
+                    <div class="bg-white p-6 shadow-lg rounded-2xl border-b-4 border-yellow-500 text-center">
+                        <i class="fas fa-microscope text-3xl text-yellow-500 mb-2"></i>
+                        <span class="block text-2xl font-bold pharmacy-green">17+ Labs</span>
+                    </div>
+                    <div class="bg-white p-6 shadow-lg rounded-2xl border-b-4 border-yellow-500 text-center">
+                        <i class="fas fa-graduation-cap text-3xl text-yellow-500 mb-2"></i>
+                        <span class="block text-2xl font-bold pharmacy-green">PCI Approved</span>
+                    </div>
+                    <div class="bg-white p-6 shadow-lg rounded-2xl border-b-4 border-yellow-500 text-center">
+                        <i class="fas fa-book-open text-3xl text-yellow-500 mb-2"></i>
+                        <span class="block text-2xl font-bold pharmacy-green">4000+ Books</span>
+                    </div>
+                    <div class="bg-white p-6 shadow-lg rounded-2xl border-b-4 border-yellow-500 text-center">
+                        <i class="fas fa-wifi text-3xl text-yellow-500 mb-2"></i>
+                        <span class="block text-2xl font-bold pharmacy-green">24x7 Wi-Fi</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="courses" class="py-16 bg-white rounded-3xl shadow-xl overflow-hidden mb-20">
+            <div class="bg-pharmacy text-white py-6 px-8 text-center">
+                <h2 class="text-3xl font-bold uppercase tracking-widest">Fee Structure & Eligibility</h2>
+            </div>
+            <div class="p-8 overflow-x-auto">
+                <table class="w-full text-left border-collapse">
+                    <thead>
+                        <tr class="border-b-2 border-gray-100">
+                            <th class="py-4 font-bold pharmacy-green">Course Name</th>
+                            <th class="py-4 font-bold pharmacy-green">Duration</th>
+                            <th class="py-4 font-bold pharmacy-green">Seats</th>
+                            <th class="py-4 font-bold pharmacy-green">Yearly Fee</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-gray-600">
+                        <tr class="border-b border-gray-50 hover:bg-green-50 transition">
+                            <td class="py-5 font-semibold text-gray-800">B.Pharm</td>
+                            <td class="py-5">4 Years</td>
+                            <td class="py-5">60</td>
+                            <td class="py-5 text-green-700 font-bold">₹ 1,10,000</td>
+                        </tr>
+                        <tr class="border-b border-gray-50 hover:bg-green-50 transition">
+                            <td class="py-5 font-semibold text-gray-800">D.Pharm</td>
+                            <td class="py-5">2 Years</td>
+                            <td class="py-5">60</td>
+                            <td class="py-5 text-green-700 font-bold">₹ 1,10,000</td>
+                        </tr>
+                        <tr class="hover:bg-green-50 transition">
+                            <td class="py-5 font-semibold text-gray-800">B.Pharm (Lateral Entry)</td>
+                            <td class="py-5">3 Years</td>
+                            <td class="py-5">06</td>
+                            <td class="py-5 text-green-700 font-bold">₹ 1,10,000</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="mt-6 flex flex-wrap gap-4 justify-center">
+                    <span class="bg-yellow-100 text-yellow-800 text-sm font-bold px-4 py-1 rounded-full border border-yellow-200 uppercase">Scholarship Opportunities*</span>
+                    <span class="bg-blue-100 text-blue-800 text-sm font-bold px-4 py-1 rounded-full border border-blue-200 uppercase">Student Credit Card Facility*</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="facilities" class="py-16 mb-20 text-center">
+            <h2 class="text-3xl font-bold pharmacy-green mb-12">World-Class Campus Facilities</h2>
+            <div class="grid md:grid-cols-3 gap-8 text-left">
+                <div class="bg-white p-8 rounded-2xl shadow-md hover:shadow-2xl transition-all border-t-4 border-green-600">
+                    <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-flask text-green-700 text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Model Pharmacy</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed">Tailored for hands-on training in various pharmaceutical disciplines adhering to PCI standards.</p>
+                </div>
+                <div class="bg-white p-8 rounded-2xl shadow-md hover:shadow-2xl transition-all border-t-4 border-green-600">
+                    <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-laptop text-green-700 text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Computer Lab</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed">Fully equipped internet lab with high-speed broadband and sessions by IBM Experts.</p>
+                </div>
+                <div class="bg-white p-8 rounded-2xl shadow-md hover:shadow-2xl transition-all border-t-4 border-green-600">
+                    <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-volleyball-ball text-green-700 text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Sports & Events</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed">Indoor & outdoor facilities including Badminton, Tennis, and Cricket for student development.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer id="contact" class="bg-gray-900 text-white py-16">
+        <div class="container mx-auto px-6 grid md:grid-cols-3 gap-12">
+            <div>
+                <h4 class="text-xl font-bold mb-6 text-yellow-500">Contact Us</h4>
+                <div class="space-y-4 text-gray-400">
+                    <p><i class="fas fa-map-marker-alt mr-3 text-green-500"></i> Al-Karim University, Karim Bagh, Katihar</p>
+                    <p><i class="fas fa-phone mr-3 text-green-500"></i> +91-6452-249212 / 9472810107</p>
+                    <p><i class="fas fa-envelope mr-3 text-green-500"></i> schoolofpharmacy@alkarimuniversity.edu.in</p>
+                </div>
+            </div>
+            <div>
+                <h4 class="text-xl font-bold mb-6 text-yellow-500">Recognition</h4>
+                <ul class="space-y-3 text-gray-400">
+                    <li>Approved by PCI</li>
+                    <li>Recognized by UGC</li>
+                    <li>State Govt. of Bihar Approved</li>
+                    <li>UGC, New Delhi Recognized</li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-xl font-bold mb-6 text-yellow-500">Newsletter</h4>
+                <p class="text-gray-400 mb-4">Subscribe for updates on admissions and events.</p>
+                <div class="flex">
+                    <input type="email" placeholder="Your Email" class="px-4 py-2 rounded-l bg-gray-800 border-none focus:ring-2 focus:ring-green-600 outline-none w-full">
+                    <button class="bg-pharmacy px-4 py-2 rounded-r hover:bg-green-700 transition">Join</button>
+                </div>
+            </div>
+        </div>
+        <div class="text-center mt-12 pt-8 border-t border-gray-800 text-gray-500 text-sm">
+            &copy; 2026 Al-Karim University. All Rights Reserved. Designed for Professional Excellence.
         </div>
     </footer>
 
-    <div id="applyModal" class="modal fixed inset-0 bg-gray-900 bg-opacity-75 items-center justify-center z-[100] p-4">
-        <div class="bg-white rounded-2xl shadow-2xl w-full max-w-lg p-8 relative overflow-y-auto max-h-[90vh]">
-            <button onclick="toggleModal()" class="absolute top-4 right-4 text-gray-500 hover:text-red-500 text-2xl">
-                <i class="fas fa-times"></i>
+    <div id="applyModal" class="modal fixed inset-0 bg-black bg-opacity-80 items-center justify-center z-[100] p-4">
+        <div class="bg-white rounded-3xl shadow-2xl w-full max-w-lg p-8 relative overflow-y-auto max-h-[95vh] border-t-8 border-yellow-500">
+            <button onclick="toggleModal()" class="absolute top-4 right-4 text-gray-400 hover:text-red-500 text-2xl transition">
+                <i class="fas fa-times-circle"></i>
             </button>
 
-            <h3 class="text-3xl font-bold pharmacy-green mb-2 text-center">Interested Student Form</h3>
-            <p class="text-gray-600 text-center mb-8">Provide your details to initiate your application.</p>
+            <div class="text-center mb-8">
+                <h3 class="text-3xl font-bold pharmacy-green">Admission Enquiry</h3>
+                <p class="text-gray-500 mt-2">Fill the form below, we will contact you soon.</p>
+            </div>
 
-            <form action="https://formspree.io/f/YOUR_UNIQUE_FORM_ID" method="POST" class="space-y-6">
+            <form action="https://formspree.io/f/mnjgywrz" method="POST" class="space-y-5">
                 
                 <div>
-                    <label class="block text-sm font-semibold text-gray-700 mb-1" for="name">Full Name</label>
-                    <input type="text" name="name" id="name" required
-                           class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-300 focus:border-green-600 outline-none transition"
-                           placeholder="Ex: Rajesh Kumar">
+                    <label class="block text-sm font-bold text-gray-700 mb-1">Full Name</label>
+                    <div class="relative">
+                        <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-gray-400"><i class="fas fa-user"></i></span>
+                        <input type="text" name="name" required class="w-full pl-10 pr-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-green-300 focus:border-green-600 outline-none transition" placeholder="Enter your full name">
+                    </div>
                 </div>
 
                 <div>
-                    <label class="block text-sm font-semibold text-gray-700 mb-1" for="mobile">Mobile Number</label>
-                    <input type="tel" name="mobile" id="mobile" required pattern="[0-9]{10}"
-                           class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-300 focus:border-green-600 outline-none transition"
-                           placeholder="10-digit mobile number">
+                    <label class="block text-sm font-bold text-gray-700 mb-1">Mobile Number</label>
+                    <div class="relative">
+                        <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-gray-400"><i class="fas fa-phone"></i></span>
+                        <input type="tel" name="mobile" required pattern="[0-9]{10}" class="w-full pl-10 pr-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-green-300 focus:border-green-600 outline-none transition" placeholder="10-digit number">
+                    </div>
                 </div>
 
                 <div>
-                    <label class="block text-sm font-semibold text-gray-700 mb-1">Select Course</label>
-                    <select name="course" required
-                            class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-300 focus:border-green-600 outline-none transition bg-white">
-                        <option value="" disabled selected>Choose Course</option>
+                    <label class="block text-sm font-bold text-gray-700 mb-1">Select Course</label>
+                    <select name="course" required class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-green-300 focus:border-green-600 outline-none transition bg-white cursor-pointer">
+                        <option value="" disabled selected>Choose a Program</option>
                         <option value="B.Pharm">B.Pharm (4 Years)</option>
                         <option value="D.Pharm">D.Pharm (2 Years)</option>
-                        <option value="B.Pharm (Lateral)">B.Pharm (Lateral Entry - 3 Years)</option>
+                        <option value="B.Pharm (Lateral)">B.Pharm (Lateral Entry)</option>
                     </select>
                 </div>
 
                 <div>
-                    <label class="block text-sm font-semibold text-gray-700 mb-1" for="qualification">Current Qualification</label>
-                    <input type="text" name="qualification" id="qualification" required
-                           class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-300 focus:border-green-600 outline-none transition"
-                           placeholder="Ex: 12th Science / D.Pharm">
+                    <label class="block text-sm font-bold text-gray-700 mb-1">Qualification</label>
+                    <div class="relative">
+                        <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-gray-400"><i class="fas fa-award"></i></span>
+                        <input type="text" name="qualification" required class="w-full pl-10 pr-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-green-300 focus:border-green-600 outline-none transition" placeholder="Ex: 12th Science / D.Pharm">
+                    </div>
                 </div>
 
-                <input type="hidden" name="_subject" value="New Student Admission Enquiry">
+                <input type="hidden" name="_subject" value="New Student Admission Enquiry - Pharmacy">
 
-                <div>
-                    <button type="submit"
-                            class="w-full bg-pharmacy text-white font-bold py-3 rounded-xl hover:bg-green-800 transition shadow-md">
-                        Submit Application
-                    </button>
-                </div>
+                <button type="submit" class="w-full bg-pharmacy text-white font-bold py-4 rounded-xl hover:bg-green-800 transition shadow-lg transform active:scale-95">
+                    Submit Application
+                </button>
             </form>
-            </div>
+        </div>
     </div>
 
     <script>
         function toggleModal() {
             const modal = document.getElementById('applyModal');
             modal.classList.toggle('active');
-            // Form open hone par main page scroll block karne ke liye
             document.body.classList.toggle('overflow-hidden');
         }
 
-        // Modal ke bahar click karne par use band karne ke liye
         window.onclick = function(event) {
             const modal = document.getElementById('applyModal');
             if (event.target == modal) {
