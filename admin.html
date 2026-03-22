@@ -43,9 +43,9 @@
                     <i class="fas fa-print mr-2"></i> Print Report
                 </button>
             </div>
-            <button onclick="location.reload()" class="bg-gray-700 text-white px-6 py-2 rounded hover:bg-gray-800">
-                <i class="fas fa-sign-out-alt mr-2"></i> Logout
-            </button>
+           <button onclick="logoutAndGoHome()" class="bg-gray-700 text-white px-6 py-2 rounded hover:bg-gray-800 transition">
+    <i class="fas fa-sign-out-alt mr-2"></i> Logout
+</button>
         </div>
 
         <div class="table-container overflow-hidden border border-gray-200 bg-white">
@@ -101,6 +101,10 @@
         // Enter key se login
         document.getElementById("adminPass").addEventListener("keyup", function(event) {
             if (event.key === "Enter") { checkPass(); }
+            function logoutAndGoHome() {
+    // Ye line aapko direct main website (index.html) par bhej degi
+    window.location.href = "index.html"; 
+}
         });
     </script>
 </body>
